@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ip-enricher"
+version = "0.1.0"
+description = "High-confidence Shodan infrastructure enrichment and discovery"
+readme = "README.md"
+license = "MIT"
+authors = [
+  { name = "shOrbit-Gum", email = "317304126+shOrbit-Gum@users.noreply.github.com" },
+]
+requires-python = ">=3.12"
+keywords = [
+  "cybersecurity",
+  "defensive-security",
+  "osint",
+  "shodan",
+  "threat-intelligence",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Information Technology",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+dependencies = [
+  "httpx>=0.28,<1",
+  "pydantic>=2.10,<3",
+  "PyYAML>=6.0,<7",
+  "typer>=0.15,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/shOrbit-Gum/Ip-Enricher"
+Repository = "https://github.com/shOrbit-Gum/Ip-Enricher"
+Issues = "https://github.com/shOrbit-Gum/Ip-Enricher/issues"
+Changelog = "https://github.com/shOrbit-Gum/Ip-Enricher/blob/main/CHANGELOG.md"
+Security = "https://github.com/shOrbit-Gum/Ip-Enricher/security/policy"
+
+[project.scripts]
+ip-enricher = "ip_enricher.cli:app"
+
+[dependency-groups]
+dev = [
+  "mypy>=1.14,<2",
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.25,<1",
+  "respx>=0.22,<1",
+  "ruff>=0.9,<1",
+  "twine>=6.1,<7",
+  "types-PyYAML>=6.0,<7",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ip_enricher"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/CHANGELOG.md",
+  "/CONTRIBUTING.md",
+  "/LICENSE",
+  "/README.md",
+  "/SECURITY.md",
+  "/src",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["ip_enricher"]

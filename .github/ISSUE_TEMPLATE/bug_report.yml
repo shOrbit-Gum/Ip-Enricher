@@ -1,0 +1,72 @@
+name: Bug report
+description: Report a reproducible problem in ip-enricher
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Remove all API keys, credentials, private
+        targets, raw Shodan responses, investigation artifacts, and sensitive logs.
+  - type: input
+    id: version
+    attributes:
+      label: ip-enricher version
+      description: Use a release tag, commit SHA, or `ip-enricher` package version.
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: 3.13.5
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - Linux
+        - macOS
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+      description: Describe what happened and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Use only documentation-range IPs and sanitized data.
+      placeholder: |
+        1. Configure ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized output
+      description: Optional. Remove secrets, private targets, and provider data.
+      render: shell
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data-safety confirmation
+      options:
+        - label: I removed API keys, credentials, private targets, raw provider responses, and sensitive investigation data.
+          required: true
+        - label: I used documentation-range addresses in the reproduction.
+          required: true
+        - label: I understand that external pull requests are not accepted.
+          required: true

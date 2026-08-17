@@ -1,0 +1,21 @@
+shodan:
+  request_timeout_seconds: 20
+  max_retries: 3
+  max_concurrent_requests: 4
+
+discovery:
+  max_query_credits_per_run: 10
+  max_results_per_query: 25
+  max_pages_per_query: 1
+  max_candidate_pool: 50
+  max_xs_source_count: 150000
+  max_candidates_per_rule: 50
+  minimum_independent_indicators: 1
+  maximum_investigation_depth: 1
+  enabled_rules:
+    - exact_tls_fingerprint
+    - exact_banner_hash
+    - favicon_and_http_title
+
+storage:
+  root: data/investigations
