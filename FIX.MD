@@ -19,16 +19,3 @@ version families rather than an exact package string. The
 `port_product_and_version` rule therefore remains disabled by default. Local
 candidate validation still requires exact port, transport, product, and version
 equality when the rule is explicitly enabled.
-
-## Resolved before public release
-
-The following issues were fixed with regression coverage:
-
-- Empty/null banners with a zero hash no longer create `hash:"0"` indicators.
-- Counts of zero or one stop before a paid search.
-- Cached searches no longer consume another run-budget unit and cache use is
-  recorded.
-- XS source failures and over-limit outcomes are recorded once per query.
-- The seed is removed before XS intersections.
-- Internal search-budget charges are recorded separately from externally
-  observed account debits.
