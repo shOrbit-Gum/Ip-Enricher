@@ -2,6 +2,7 @@
 .env
 .env.*
 !.env.example
+AGENTS.md
 config.yaml
 config.local.yaml
 
